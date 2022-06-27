@@ -7,7 +7,7 @@ NOTE: For Functions or Variables to be globally availble. The MUST start with a 
 
 */
 
-package GO_MODULE
+package CUSTOM_GO_MODULE
 
 import (
 	// = = = = = Native Libraries
@@ -16,8 +16,8 @@ import (
 		"regexp"
 		"strings"
 		"unicode"
-		"fmt"
-	// = = = = = PERSONAL Libraries
+	// = = = = = CUSTOM Libraries
+		. "github.com/acedev0/GOGO_Gadgets/a"
 
 	// = = = = = 3rd Party Libraries
 
@@ -27,11 +27,13 @@ import (
 
 func GET_MD5_HASH(inval string) string {
 
-	fmt.Println("GENerating MD5 Hash")
 
 	hasher := md5.New()
 	hasher.Write([]byte(inval))
 	result := hex.EncodeToString(hasher.Sum(nil))
+
+	C.Print("Now Generation MD5 Hash: ")
+	Y.Println(result)
 
 	// color.Green(" Hey the hasval is: " + result)
 
