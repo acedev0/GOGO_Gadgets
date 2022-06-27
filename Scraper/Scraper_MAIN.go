@@ -26,13 +26,13 @@ package CUSTOM_GO_MODULE
 
 import (
 
-	//1.  = = = CORE / Standard Library Deps
+	// = = = NATIVE Libraries / Standard Library Deps
 		"net/http" // Needed for the functions that send JSON back and forth
 
-	//2. = = = Personal Libraries
-		. "dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GOGO_Gadgets"
+	//2. = = = CUSTOM Libraries
+		. "github.com/acedev0/GOGO_Gadgets/a"
 
-	//3. = = = 3rd Party DEPENDENCIES	
+	//3. = = = 3rd Party Libraries	
 		"github.com/PuerkitoBio/goquery"
 
 )

@@ -3,8 +3,8 @@ module github.com/acedev0/GOGO_Gadgets/Scraper
 go 1.18
 
 require (
-	dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GOGO_Gadgets v0.0.0-20220627051251-87183975abd7
 	github.com/PuerkitoBio/goquery v1.8.0
+	github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220627175911-1a3ccf1376ab
 )
 
 require (
