@@ -5,7 +5,7 @@ NOTE: For Functions or Variables to be globally availble. The MUST start with a 
 	Aug 28, 2021    v1.23   - Initial Rollout
 */
 
-package GO_MODULE
+package CUSTOM_GO_MODULE
 
 import (
 	// = = = = = Native Libraries
