@@ -15,15 +15,15 @@ package CUSTOM_GO_MODULE
 
 import (
 	
-	// = = = = STANDARD Library
+	// = = = = Native Library
 		"context"
 		"time"
 		"flag"
 		"strings"
 		"os"
 
-	// = = = = PERSONAL Libraries
-		. "dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GOGO_Gadgets"
+	// = = = = CUSTOM Libraries
+		. "github.com/acedev0/GOGO_Gadgets/a"
 
 
 	// = = = = 3RD Party MODULES - - - -
