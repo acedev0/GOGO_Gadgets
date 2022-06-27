@@ -1,3 +1,3 @@
-module dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GG_StringOPS_GADGET
+module github.com/acedev0/GOGO_Gadgets/StringOPS
 
 go 1.18
