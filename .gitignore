@@ -1,0 +1,24 @@
+build
+dist
+/node_modules
+.DS_Store
+sassdoc
+.sass-cache
+*.xlsx
+/idea
+/.idea
+
+*.mac
+*.LINUX
+*.exe
+
+package-lock.json
+
+/public/layout/css/layout-*.css
+/public/layout/css/layout-*.map
+/public/theme/*/theme-*.css
+/public/theme/*/theme-*.map
+/src/assets/sass/theme/designer
+
+#Electron-builder output
+/dist_electron
