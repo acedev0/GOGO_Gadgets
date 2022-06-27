@@ -1340,6 +1340,7 @@ func SETUP_DEFAULT_COMMAND_LINE_PARAMS() {
 */
 func MASTER_INIT(PROGNAME string, ALL_PARAMS ...float64) {
 	var VERSION = DEFAULT_FLOAT
+	C.Println(" IN NEW MASTER INIT ")
 
 	//2. Now, see if version was passed
 	for x, VAL := range ALL_PARAMS {
