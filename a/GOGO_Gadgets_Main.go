@@ -10,13 +10,10 @@ NOTE: For Functions or Variables to be globally availble. The MUST start with a 
 
 */
 
-package CUST_GO_MODULE
+package CUSTOM_GO_MODULE
 
 
 import (
-	// = = = = = Native Libraries
-	// = = = = = PERSONAL Libraries
-	// = = = = = 3rd Party Libraries
 
 	// = = = = = Native Libraries
 		"flag"		
@@ -30,7 +27,7 @@ import (
 		"time"
 		"bufio"
 		"unicode/utf8"
-	// = = = = = PERSONAL Libraries
+	// = = = = = CUSTOM Libraries
 
 
 	// = = = = = 3rd Party Libraries
