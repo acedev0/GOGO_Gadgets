@@ -22,10 +22,10 @@ import (
 		"math"
 		//"math/rand"
 
-	// = = = = = PERSONAL Libraries
+	// = = = = = CUSTOM Libraries
 
-		. "dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GOGO_Gadgets"
-		. "dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GG_StringOPS_GADGET"
+		. "github.com/acedev0/GOGO_Gadgets/a"
+		. "github.com/acedev0/GOGO_Gadgets/StringOPS"
 
 
 	// = = = = = 3rd Party Libraries

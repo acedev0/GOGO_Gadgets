@@ -1,7 +1,7 @@
-dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GG_StringOPS_GADGET v0.0.0-20220417034303-fca3d902d52c h1:wg1G6R06i5iaHVPnravcjVGuwMbXqk0FiJsOglnWB6c=
-dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GG_StringOPS_GADGET v0.0.0-20220417034303-fca3d902d52c/go.mod h1:WLh9TrixDVz6iZxMnWv+9fTRyFOB1AEzY4KLkiSd/Ok=
-dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GOGO_Gadgets v0.0.0-20220417034303-fca3d902d52c h1:14ACqe0jHWcyWilYCAeQI6HrQ6Dv8U/cesBx0O4dNwE=
-dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GOGO_Gadgets v0.0.0-20220417034303-fca3d902d52c/go.mod h1:dfvO6gUFkw6MgqOLjP38YChQZGnadnELEx0GrTEknh8=
+github.com/acedev0/GOGO_Gadgets/StringOPS v0.0.0-20220627175834-c98cd9b92777 h1:g6nqtE3Rla0LUEnlg47Vk0L7Xm0B+Y2/LpRIkv1jXVY=
+github.com/acedev0/GOGO_Gadgets/StringOPS v0.0.0-20220627175834-c98cd9b92777/go.mod h1:J6iLH40R+SJSstMZOp1UsrYwN76pZYjKIce1HwBW2gY=
+github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220627175834-c98cd9b92777 h1:iU8PUTrgDzUNXhPZEhppkeac75HfgvXzn1zgY2dJ/d8=
+github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220627175834-c98cd9b92777/go.mod h1:kImbUNAfqFrYwjXXdSkdey8KuahQvqbbSwQgQya1e1E=
 github.com/atotto/clipboard v0.1.4 h1:EH0zSVneZPSuFR11BlR9YppQTVDbh5+16AmcJi4g1z4=
 github.com/atotto/clipboard v0.1.4/go.mod h1:ZY9tmq7sm5xIbd9bOK4onWV4S6X0u6GY7Vn0Yu86PYI=
 github.com/briandowns/spinner v1.18.1 h1:yhQmQtM1zsqFsouh09Bk/jCjd50pC3EOGsh28gLVvwY=

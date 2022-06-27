@@ -1,10 +1,10 @@
-module dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GG_Math_Date_CONVERSION_GADGET
+module github.com/acedev0/GOGO_Gadgets/Math_Date_CONVERSION
 
-go 1.17
+go 1.18
 
 require (
-	dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GG_StringOPS_GADGET v0.0.0-20220417034303-fca3d902d52c
-	dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GOGO_Gadgets v0.0.0-20220417034303-fca3d902d52c
+	github.com/acedev0/GOGO_Gadgets/StringOPS v0.0.0-20220627175834-c98cd9b92777
+	github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220627175834-c98cd9b92777
 )
 
 require (
