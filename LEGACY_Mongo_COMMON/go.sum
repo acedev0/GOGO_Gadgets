@@ -1,9 +1,9 @@
-dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GOGO_Gadgets v0.0.0-20210925173907-6f50ac48c351 h1:uRm6P/UC+Cp73iH9WneY+kWqIJTgM44XZ56nlEH941k=
-dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GOGO_Gadgets v0.0.0-20210925173907-6f50ac48c351/go.mod h1:qFvMmrZ4PfrFB4qc+H8F2uSPthp4ZkbkeaR8OixVFAI=
+github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220627175814-adc3cf8f7a87 h1:aaINTLofn7nFJDSJltdTwcg1GhQfP3NjO1juqCtoz7Q=
+github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220627175814-adc3cf8f7a87/go.mod h1:kImbUNAfqFrYwjXXdSkdey8KuahQvqbbSwQgQya1e1E=
 github.com/atotto/clipboard v0.1.4 h1:EH0zSVneZPSuFR11BlR9YppQTVDbh5+16AmcJi4g1z4=
 github.com/atotto/clipboard v0.1.4/go.mod h1:ZY9tmq7sm5xIbd9bOK4onWV4S6X0u6GY7Vn0Yu86PYI=
-github.com/briandowns/spinner v1.16.0 h1:DFmp6hEaIx2QXXuqSJmtfSBSAjRmpGiKG6ip2Wm/yOs=
-github.com/briandowns/spinner v1.16.0/go.mod h1:QOuQk7x+EaDASo80FEXwlwiA+j/PPIcX3FScO+3/ZPQ=
+github.com/briandowns/spinner v1.18.1 h1:yhQmQtM1zsqFsouh09Bk/jCjd50pC3EOGsh28gLVvwY=
+github.com/briandowns/spinner v1.18.1/go.mod h1:mQak9GHqbspjC/5iUx3qMlIho8xBS/ppAL/hX5SmPJU=
 github.com/dustin/go-humanize v1.0.0 h1:VSnTsYCnlFHaM2/igO1h6X3HA71jcobQuxemgkq4zYo=
 github.com/dustin/go-humanize v1.0.0/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=

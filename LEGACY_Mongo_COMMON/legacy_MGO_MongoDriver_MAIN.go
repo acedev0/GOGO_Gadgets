@@ -21,17 +21,17 @@
 package CUSTOM_GO_MODULE
 
 import (
-	// = = = CORE / Standard Library Deps
-	"flag"
-	"time"
-	"os"
-	
-	// = = = Personal/Custom Deps
-	. "dev.azure.com/acetrade/shared/_git/PUBLIC_Ace.git/GOGO_Gadgets"
+	// = = = NATIVE Libraries
+		"flag"
+		"time"
+		"os"
+		
+	// = = = CUSTOM Libraries
+		. "github.com/acedev0/GOGO_Gadgets/a"
 
 
-	// = = = 3rd Party DEPS
-	"gopkg.in/mgo.v2"
+	// = = = 3rd Party Libraries
+		"gopkg.in/mgo.v2"
 
 )
 
