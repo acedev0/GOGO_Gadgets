@@ -48,6 +48,9 @@ func CALC_RATIO(smallNUM float64, bigNUM float64, FORCE_DETECT_LARGEST_NUM ...bo
 	return fixed_PERC
 } //end of func
 	
+func GET_RATIO(smallNUM float64, bigNUM float64, FORCE_DETECT_LARGEST_NUM ...bool) float64 {
+	return CALC_RATIO(smallNUM, bigNUM, FORCE_DETECT_LARGEST_NUM)
+}
 
 // Gets the difference between to integer values
 func GET_DIFF(num_A int, num_B int) int {
