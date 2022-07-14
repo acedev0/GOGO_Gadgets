@@ -33,7 +33,21 @@ import (
 )
 
 
+func CALC_RATIO(smallNUM float64, bigNUM float64, FORCE_DETECT_LARGEST_NUM ...bool) float64 {
 
+	divid := smallNUM / bigNUM
+	if FORCE_DETECT_LARGEST_NUM[0] == true {
+		if smallNUM > bigNUM {
+			divid = bigNUM / smallNUM
+		}
+	}
+
+	perc := divid * 100.0
+	fixed_PERC := FIX_FLOAT_PRECISION(perc, 2)
+
+	return fixed_PERC
+} //end of func
+	
 
 // Gets the difference between to integer values
 func GET_DIFF(num_A int, num_B int) int {
