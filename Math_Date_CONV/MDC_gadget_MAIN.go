@@ -291,11 +291,10 @@ func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 
 	calc_VAL := (100.0 * smallNUM) / largeNUM
 
-	tmpString := strconv.FormatFloat(calc_VAL, 'f', PRECISION, 64)
-	percNUM, _ := strconv.ParseFloat(tmpString, 64) // this reformats the percentage to have just the # decimal points that PRECISIONS specifies
+	percSTRING := strconv.FormatFloat(calc_VAL, 'f', PRECISION, 64)		// Make a string of calc_VAL with specific # of PRECISION dec points
+	percNUM, _ := strconv.ParseFloat(percSTRING, 64) // this NUMERICALLY reformats the percentage to have just the # decimal points that PRECISIONS specifies
 	
-	// make pretty string
-	percSTRING := strconv.FormatFloat(calc_VAL, 'f', PRECISION, 64)
+	// make pretty string	
 	percSTRING = percSTRING + "%"
 
 	return percSTRING, percNUM
