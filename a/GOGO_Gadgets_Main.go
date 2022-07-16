@@ -1306,19 +1306,50 @@ func IS_BOOL(param interface{}) bool {
 }
 
 
+
 // RETURNS a STRUCt in JSON format.. a string..which you can PRINTLN
-func SHOW_STRUCT(input interface{}) string {
+func SHOW_STRUCT(ALL_PARAMS ...interface{}) {
+	
+	var tmpSTRUCT interface{}
+
+	var COLOR = "yellow"		// whill show struct in yellow
+
+	// Collects the input params specified... supports INT and FLOAT dynamically
+	for n, param := range ALL_PARAMS {
+	
+		// First paramn is always the STRUCT
+		if n == 0 {
+			tmpSTRUCT = param
+			continue
+
+		}
+
+		// If second paramis sepectified.. This will be the color in whichw e display thie struct
+		if n == 1 {
+			COLOR = param.(string)
+		}
+	}	
+	
+
+	if COLOR == "red" {			R.Println(PRETTY_STRUCT_json(tmpSTRUCT))	
+	} else if COLOR == "magenta" {		M.Println(PRETTY_STRUCT_json(tmpSTRUCT))	
+	} else if COLOR == "green" {		G.Println(PRETTY_STRUCT_json(tmpSTRUCT))	
+	} else if COLOR == "white" {		W.Println(PRETTY_STRUCT_json(tmpSTRUCT))	 
+	} else if COLOR == "cyan" {		C.Println(PRETTY_STRUCT_json(tmpSTRUCT))
+	// The default color
+	} else {
+		Y.Println(PRETTY_STRUCT_json(tmpSTRUCT))
+	}
+
+}
+
+// Returns a JSON output of a struct  
+func PRETTY_STRUCT_json(input interface{}) string {
 	byte_json, _ := json.MarshalIndent(input, "", "  ")
 
 	result := string(byte_json)
-	
-	return result
-	
-}
 
-// Alias for SHOW_STRUCT
-func PRETTY_SHOW_STRUCT(input interface{}) string {
-	return SHOW_STRUCT(input)
+	return result
 }
 
 
