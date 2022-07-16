@@ -664,7 +664,10 @@ func SHOW_PRETTY_DATE(input_DATE time.Time, EXTRA_ARGS...string) (string, string
 
 	//5. Update ZONE info 
 	tmp_zone, tmp_offset := input_DATE.Zone()
-	TMP_ZONE_FULL := " (" + tmp_zone + " " + tmp_offset + ")"
+
+	tmp_off_string := strconv.Itoa(tmp_offset)
+
+	TMP_ZONE_FULL := " (" + tmp_zone + " " + tmp_off_string + ")"
 
 	/* 7. Here is the DEFAULT Pretty format that is returned
 
