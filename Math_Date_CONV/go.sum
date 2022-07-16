@@ -1,7 +1,7 @@
-github.com/acedev0/GOGO_Gadgets/StringOPS v0.0.0-20220716033407-3ddfbb90bbd0 h1:szFvQoVZbpdtQ9im6jy7S8Y+Tl48dVKGMRqQbaW2vLo=
-github.com/acedev0/GOGO_Gadgets/StringOPS v0.0.0-20220716033407-3ddfbb90bbd0/go.mod h1:jN7Cjz8HDzj/n/Z6AxUjDsc1yPw3J68enamW2wvHStA=
-github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220716033407-3ddfbb90bbd0 h1:qFwb04ckZ6MG3ChKKzGy0MMPs2MtOViIh8bzChRsseE=
-github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220716033407-3ddfbb90bbd0/go.mod h1:kImbUNAfqFrYwjXXdSkdey8KuahQvqbbSwQgQya1e1E=
+github.com/acedev0/GOGO_Gadgets/StringOPS v0.0.0-20220716033934-f5ca61c539a0 h1:OqNnU23m1AmniS92EbXPi6Oh8n7gU1xw7WsZeqQHX/0=
+github.com/acedev0/GOGO_Gadgets/StringOPS v0.0.0-20220716033934-f5ca61c539a0/go.mod h1:jN7Cjz8HDzj/n/Z6AxUjDsc1yPw3J68enamW2wvHStA=
+github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220716033934-f5ca61c539a0 h1:wn0PCllFbgt1XSQb62l5jS+U9WI8DkgzihFx7lgJdd0=
+github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220716033934-f5ca61c539a0/go.mod h1:kImbUNAfqFrYwjXXdSkdey8KuahQvqbbSwQgQya1e1E=
 github.com/atotto/clipboard v0.1.4 h1:EH0zSVneZPSuFR11BlR9YppQTVDbh5+16AmcJi4g1z4=
 github.com/atotto/clipboard v0.1.4/go.mod h1:ZY9tmq7sm5xIbd9bOK4onWV4S6X0u6GY7Vn0Yu86PYI=
 github.com/briandowns/spinner v1.18.1 h1:yhQmQtM1zsqFsouh09Bk/jCjd50pC3EOGsh28gLVvwY=

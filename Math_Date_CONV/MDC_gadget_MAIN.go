@@ -316,6 +316,18 @@ func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 
 
 }
+
+/*
+	This takes in a number (float) and shows it as pretty PERCENT string
+*/
+func SHOW_PRETTY_PERCENT(num float64, PRECISION int) string {
+
+	percSTRING := strconv.FormatFloat(num, 'f', PRECISION, 64)		// Make a string of num with specific # of PRECISION dec points
+
+	return percSTRING
+}
+
+
 // Returns Percentages INCREASE DECREASE for stocks etc... Takes in floats
 func GET_INC_DEC_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 	
