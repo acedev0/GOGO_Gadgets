@@ -850,6 +850,7 @@ func GET_CURRENT_TIME(EXTRA_ARGS ...string) (string, time.Time) {
 
 			case "utc":
 				dateOBJ = dateOBJ.In(UTC_OBJ)
+				C.Println(" SHOWING DATE IN: UTC!!!!!!")
 	
 		} //end of switch
 
@@ -857,6 +858,8 @@ func GET_CURRENT_TIME(EXTRA_ARGS ...string) (string, time.Time) {
 		if VAL == "short" || VAL == "full" || VAL == "british" || VAL == "iso" || VAL == "justdate" {
 			output_FORMAT = VAL
 		}
+
+		
 
 	} //end of for
 
