@@ -1254,6 +1254,7 @@ func GET_VAR_TYPE(ALL_PARAMS ...interface{}) string {
 		_, IS_INT := param.(int)
 		_, IS_FLOAT := param.(float64) 
 		_, IS_STRING := param.(string) 
+		_, IS_BOOL := param.(bool) 
 
 		if IS_INT {
 			return "int"
@@ -1265,6 +1266,10 @@ func GET_VAR_TYPE(ALL_PARAMS ...interface{}) string {
 
 		if IS_STRING {
 			return "string"
+		}
+
+		if IS_BOOL {
+			return "bool"
 		}
 	}
 
@@ -1290,6 +1295,15 @@ func IS_FLOAT(param interface{}) bool {
 	if result == "float" { return true }
 	return false
 }
+
+func IS_BOOL(param interface{}) bool {
+
+	result := GET_VAR_TYPE(param)
+	if result == "bool" { return true }
+	return false
+}
+
+
 
 // These are the characters used to generate the serial
 //var sessTEMPLATE = []rune("GRZBJHUFLEKVXMNTQPSOADWYC527183469")
