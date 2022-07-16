@@ -235,7 +235,7 @@ func IS_ODD(input_NUM int) bool {
  SMALLIST number goes first.. then BIGGEST number
  // specify a 3rd parameter of 2 or 3...to get a percent returned with THAT much precision
 */
-func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
+func GET_PERCENT(ALL_PARAMS ...interface{}) (float64, string) {
 
 	var firstNUM = 0.0
 	var secNUM = 0.0
