@@ -311,7 +311,7 @@ func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 	// make pretty string	
 	percSTRING = percSTRING + "%"
 
-	return percSTRING, percNUM
+	return percNUM, percSTRING
 
 
 
