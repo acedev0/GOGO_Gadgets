@@ -27,6 +27,8 @@ import (
 		"time"
 		"bufio"
 		"unicode/utf8"
+		"encoding/json"
+		
 	// = = = = = CUSTOM Libraries
 
 
@@ -1301,6 +1303,22 @@ func IS_BOOL(param interface{}) bool {
 	result := GET_VAR_TYPE(param)
 	if result == "bool" { return true }
 	return false
+}
+
+
+// RETURNS a STRUCt in JSON format.. a string..which you can PRINTLN
+func SHOW_STRUCT(input interface{}) string {
+	byte_json, _ := json.MarshalIndent(input, "", "  ")
+
+	result := string(byte_json)
+	
+	return result
+	
+}
+
+// Alias for SHOW_STRUCT
+func PRETTY_SHOW_STRUCT(input interface{}) string {
+	return SHOW_STRUCT(input)
 }
 
 
