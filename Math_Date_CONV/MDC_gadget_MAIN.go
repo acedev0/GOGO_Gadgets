@@ -323,7 +323,8 @@ func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 func SHOW_PRETTY_PERCENT(num float64, PRECISION int) string {
 
 	percSTRING := strconv.FormatFloat(num, 'f', PRECISION, 64)		// Make a string of num with specific # of PRECISION dec points
-
+	percSTRING = percSTRING + "%"
+	
 	return percSTRING
 }
 
