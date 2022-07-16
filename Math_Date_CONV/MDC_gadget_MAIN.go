@@ -283,9 +283,18 @@ func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 	
 	
 	// ERROR HANDLING quick returns
-	if largeNUM == smallNUM {
+
+	// 
+	if smallNUM == 0.0 || largeNUM == 0.0 {
 		return "0.0%", 0.0
+	}	
+
+
+	// if numbers are equal
+	if largeNUM == smallNUM {
+		return "100.0%", 100.0
 	}
+
 	
 	if FORCE_RETURN_POSITIVE {
 		if secNUM > firstNUM {
