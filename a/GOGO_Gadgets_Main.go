@@ -649,8 +649,11 @@ func SHOW_PRETTY_DATE(input_DATE time.Time, EXTRA_ARGS...string) (string, string
 	cMin := ADD_LEADING_ZERO(mintemp)
 	
 	sectemp := input_DATE.Second()
-	nanotemp := input_DATE.Nanosecond()
 	cSec := ADD_LEADING_ZERO(sectemp)
+	nanotemp := input_DATE.Nanosecond()
+
+	cNanoSecond := strconv.Itoa(nanotemp)
+
 
 
 	//4. Thankfully we dont have to worry about this fuckery with the year!
@@ -661,7 +664,7 @@ func SHOW_PRETTY_DATE(input_DATE time.Time, EXTRA_ARGS...string) (string, string
 
 	//5. Update ZONE info 
 	tmp_zone, tmp_offset := input_DATE.Zone()
-	TMP_ZONE_FULL = " (" + tmp_zone + " " + tmp_offset + ")"
+	TMP_ZONE_FULL := " (" + tmp_zone + " " + tmp_offset + ")"
 
 	/* 7. Here is the DEFAULT Pretty format that is returned
 
@@ -687,7 +690,7 @@ func SHOW_PRETTY_DATE(input_DATE time.Time, EXTRA_ARGS...string) (string, string
 		result_TEXT = weekd + ", " + cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin + ":" + cSec + " " + TMP_ZONE_FULL
 
 	} else if output_FORMAT == "nano" {
-		result_TEXT = weekd + ", " + cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin + ":" + cSec + ":" + nanotemp + " " + TMP_ZONE_FULL
+		result_TEXT = weekd + ", " + cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin + ":" + cSec + ":" + cNanoSecond + " " + TMP_ZONE_FULL
 	
 	//10. This is the british/iso format: 2020-09-26
 	} else if output_FORMAT == "british" || output_FORMAT == "iso" {
