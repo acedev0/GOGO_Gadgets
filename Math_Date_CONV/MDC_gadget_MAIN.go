@@ -233,11 +233,76 @@ func IS_ODD(input_NUM int) bool {
 // Alias for GET_PERCENTAGE
 func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 
-	return GET_PERCENTAGE(ALL_PARAMS... )
+	var firstNUM = 0.0
+	var secNUM = 0.0
+
+	var PRECISION = 2		// Default preceission si to return a percent with 2 dec points
+
+	var FORCE_RETURN_POSITIVE = false
+	// Collects the input params specified... supports INT and FLOAT dynamically
+	for n, param := range ALL_PARAMS {
+		// First paramn is always FIRSTNUM
+		if n == 0 {
+
+			if IS_INT(param) { 
+				firstNUM = float64(param.(int)) 
+			} else {
+				firstNUM = param.(float64)
+			}
+			continue
+		}
+		
+		if n == 1 {
+			if IS_INT(param) { 
+				secNUM = float64(param.(int)) 
+			} else {
+				secNUM = param.(float64)
+			}		
+			continue	
+		}
+		
+		// IF a 3 param is specified, this implies the PRECISION of the percentage we return
+		if n == 2 && IS_INT(param) {
+			PRECISION = param.(int)
+		}
+
+		// If a bool is specified, this controls ensuring we return a positive number
+		if IS_BOOL(param) {
+			FORCE_RETURN_POSITIVE = true
+		}
+
+	} //end of for
+
+	// This is same as the TradingView percent function in Terry_CCOMMON_LIB
+	var largeNUM = firstNUM
+	var smallNUM = secNUM
+	
+	// ERROR HANDLING quick returns
+	if largeNUM == smallNUM {
+		return "0.0%", 0.0
+	}
+	
+	if FORCE_RETURN_POSITIVE {
+		if secNUM > firstNUM {
+			largeNUM = secNUM
+			smallNUM = firstNUM
+		}
+	}
+
+	calc_VAL := (100.0 * smallNUM) / largeNUM
+
+	percSTRING := strconv.FormatFloat(calc_VAL, 'f', PRECISION, 64)
+	percNUM, _ := strconv.ParseFloat(percSTRING, 64) // this reformats the percentage to have just the # decimal points that PRECISIONS specifies
+	
+
+
+	return percSTRING, percNUM
+
+
+
 }
-// Returns Percentages... Takes in floats
-// NEW _GET _PERCENTAGE revised function
-func GET_PERCENTAGE(ALL_PARAMS ...interface{}) (string, float64) {
+// Returns Percentages INCREASE DECREASE for stocks etc... Takes in floats
+func GET_INC_DEC_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 	
 	var firstNUM = 0.0
 	var secNUM = 0.0
@@ -343,7 +408,7 @@ func GET_PERCENTAGE(ALL_PARAMS ...interface{}) (string, float64) {
 
 		BUGFIX_mode = "decrease"
 
-		}	
+	}	
 
 	//3. Now that we have the numbers in the correct place, lets do the math
 	// CORRECT PERCENTAGE CALCULATION:
