@@ -233,7 +233,7 @@ func IS_ODD(input_NUM int) bool {
 // Alias for GET_PERCENTAGE
 func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 
-	return GET_PERCENTAGE(ALL_PARAMS )
+	return GET_PERCENTAGE(ALL_PARAMS... )
 }
 // Returns Percentages... Takes in floats
 // NEW _GET _PERCENTAGE revised function
