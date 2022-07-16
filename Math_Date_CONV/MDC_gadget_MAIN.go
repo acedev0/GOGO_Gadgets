@@ -230,7 +230,10 @@ func IS_ODD(input_NUM int) bool {
 	return false
 }
 
-// Alias for GET_PERCENTAGE
+/*
+ FIXED GET_PERCENT as of 7/2022
+ SMALLIST number goes first.. then BIGGEST number
+*/
 func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 
 	var firstNUM = 0.0
@@ -274,8 +277,9 @@ func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 	} //end of for
 
 	// This is same as the TradingView percent function in Terry_CCOMMON_LIB
-	var largeNUM = firstNUM
-	var smallNUM = secNUM
+	var smallNUM = firstNUM
+	var largeNUM = secNUM
+	
 	
 	// ERROR HANDLING quick returns
 	if largeNUM == smallNUM {
@@ -288,7 +292,7 @@ func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 			smallNUM = firstNUM
 		}
 	}
-
+	// SMALLIST number goes first.. then BIGGEST number
 	calc_VAL := (100.0 * smallNUM) / largeNUM
 
 	percSTRING := strconv.FormatFloat(calc_VAL, 'f', PRECISION, 64)		// Make a string of calc_VAL with specific # of PRECISION dec points
