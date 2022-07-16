@@ -230,8 +230,11 @@ func IS_ODD(input_NUM int) bool {
 	return false
 }
 
+// Alias for GET_PERCENTAGE
+func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 
-
+	return GET_PERCENTAGE(ALL_PARAMS )
+}
 // Returns Percentages... Takes in floats
 // NEW _GET _PERCENTAGE revised function
 func GET_PERCENTAGE(ALL_PARAMS ...interface{}) (string, float64) {
@@ -388,117 +391,6 @@ func GET_PERCENTAGE(ALL_PARAMS ...interface{}) (string, float64) {
 	//5. return all the magic!!
 	return details, fixed_percNUM
 }
-
-
-
-// Returns Percentages using INTs.. this is an alias with conversion to floats for GET_PERCENTAGAE
-/* func GET_PERCENTAGE_INT(firstNUM int, secNUM int, ALL_PARAMS ...bool) (string, float64) {
-
-	float_first := float64(firstNUM)
-	float_sec := float64(secNUM)
-
-
-	return GET_PERCENTAGE(float_first, float_sec, ALL_PARAMS...)
-}
-
-
-// Returns Percentages... Takes in floats
-func GET_PERCENTAGE(firstNUM float64, secNUM float64, ALL_PARAMS ...bool) (string, float64) {
-
-	var SHOW_OUTPUT = false
-
-	// If true is passed, we show the output of this function 
-	for n, val := range ALL_PARAMS {
-		if n == 0 {
-			SHOW_OUTPUT = val
-			continue
-		}
-	}
-
-	//1. First get the diff... if they are equal, we return
-	if firstNUM == secNUM {
-
-		return "0.0% No Change", 0.0
-	}
-
-	//2. Also if one number is 0.0 .. we return.. obviously this is 100%
-	if firstNUM == 0.0 && secNUM > 0.0 {
-		return "9999.9999% INCREASE (from 0) ", 99999.9999
-
-	}
-	if secNUM == 0.0 && firstNUM > 0.0 {
-		return "9999.9999% DECREASE (from 0) ", 99999.9999
-	}	
-
-	
-
-
-	smallNUM := firstNUM
-	largeNUM := secNUM
-
-
-	//2b BUG FIX.. if negeative numbers are passed we get the wrong percentage
-	if smallNUM < 0.0 {
-
-		smallNUM = math.Abs(smallNUM) 
-		largeNUM = largeNUM + smallNUM
-
-	} else if largeNUM < 0.0 {
-
-		largeNUM = math.Abs(largeNUM) 
-		smallNUM = smallNUM + largeNUM
-
-	}	
-
-	//3. Now that we have the numbers in the correct place, lets do the math
-	// CORRECT PERCENTAGE CALCULATION:
-	// Percentage Increase = [ (Final Value - Starting Value) / |Starting Value| ] × 100
-
-	mperc := ((largeNUM - smallNUM) / smallNUM) * 100
-
-	
-
-
-
-	//4. Determine if this is increase or decrease (based on if we have a negative number returned)
-	mode := "increase"
-
-	if mperc < 0 {
-		mperc = math.Abs(mperc) 
-		mode = "decrease"
-	}
-
-
-	//5. Convert the percentages into readable objects
-	percSTRING := strconv.FormatFloat(mperc, 'f', 2, 64)
-	fixed_percNUM, _ := strconv.ParseFloat(percSTRING, 64) // this reformats the percentage to have just 2 decimals
-	
-
-	// Now, lets adjust percSTRING so we have a leading % char
-	// (must be done AFTER the call to parseFLoat)
-	percSTRING = percSTRING + "%"                           
-
-	var details = ""
-	
-	if mode == "increase" {
-		details = "INCREASED by " + percSTRING
-
-	} else if mode == "decrease" {
-		details = "DECREASED by " + percSTRING
-	}
-
-	firstSTRING := strconv.FormatFloat(firstNUM, 'f', 2, 64)
-	secSTRING := strconv.FormatFloat(secNUM, 'f', 2, 64)
-
-	mode = strings.ToUpper(mode)
-	if SHOW_OUTPUT {
-		SHOW_BOX_MESSAGE("GET_PERCENTAGE", "|cyan|" + firstSTRING + " --> " + secSTRING, "|yellow|" + mode + " by", "|green|" + percSTRING)
-	}
-
-	//5. return all the magic!!
-	return details, fixed_percNUM
-}
-*/
 
 
 
