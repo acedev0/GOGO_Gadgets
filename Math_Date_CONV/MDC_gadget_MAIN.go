@@ -278,8 +278,8 @@ func GET_PERCENTAGE(ALL_PARAMS ...interface{}) (string, float64) {
 	}
 
 	//2. Also if one number is 0.0 .. we return.. obviously this is 100%
-	var bugfix_num = 100.9999
-	var bugfix_TEXT = "100.9999"
+	var bugfix_num = 100.0
+	var bugfix_TEXT = "100.0"
 
 	if firstNUM == 0.0 {
 		if secNUM > 0.0 {
