@@ -615,20 +615,15 @@ func GET_DB_DATE_UTC(input_DATE_OBJ time.Time) (time.Time, string, string, strin
 */
 func SHOW_PRETTY_DATE(input_DATE time.Time, EXTRA_ARGS...string) (string, string) {
 	var output_FORMAT = "short"
-	var SHOW_SECONDS = false
 
 	//1. Parse out EXTRA_ARGS
 	for _, VAL := range EXTRA_ARGS {
 
-		//1c. If sec or seconds is passed, we also will show the seconds
-		if VAL == "sec" || VAL == "seconds" {
-			SHOW_SECONDS = true
-			continue
 
-		//1e. If short is passed, we show this format: Wednesday, 11/20/2001
+		//1e. only parameter this takes is the output format we want
 		// If full is passed, we show this format: Wednesday, 11/20/2020 @ 13:56
 		// if british or iso is passed, we show: 2015-05-30
-		} else if VAL != "" {
+		if VAL != "" {
 			output_FORMAT = VAL
 			continue
 		}
@@ -677,11 +672,9 @@ func SHOW_PRETTY_DATE(input_DATE time.Time, EXTRA_ARGS...string) (string, string
 
 		09/26/1978 @ 13:58:05
 	*/
-	result_TEXT := cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin
-	if SHOW_SECONDS {
-		result_TEXT += ":" + cSec
-	}
-
+	//result_TEXT := cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin
+	result_TEXT := "nullDATE_specified"
+	
 	//8. SHORT Format is:  Wednesday, 11/20/2001
 	if output_FORMAT == "short" {
 
@@ -693,7 +686,7 @@ func SHOW_PRETTY_DATE(input_DATE time.Time, EXTRA_ARGS...string) (string, string
 		result_TEXT = weekd + ", " + cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin + ":" + cSec + " " + TMP_ZONE_FULL
 
 	} else if output_FORMAT == "nano" {
-		result_TEXT = weekd + ", " + cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin + ":" + cSec + ":" + cNanoSecond + " " + TMP_ZONE_FULL
+		result_TEXT = weekd + ", " + cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin + ":" + cSec + " nano:" + cNanoSecond + " " + TMP_ZONE_FULL
 	
 	//10. This is the british/iso format: 2020-09-26
 	} else if output_FORMAT == "british" || output_FORMAT == "iso" {
@@ -864,7 +857,8 @@ func GET_CURRENT_TIME(EXTRA_ARGS ...string) (string, time.Time) {
 		} //end of switch
 
 		//3. If full, short, british or iso specified, set the output format
-		if VAL == "short" || VAL == "full" || VAL == "british" || VAL == "iso" || VAL == "justdate" {
+		// MAKE SURE SHOW_PRETTY_DATE also picks these UP!! (supports them)
+		if VAL == "full" || VAL == "british" || VAL == "iso" || VAL == "justdate" || VAL == "nano" || VAL == "timestamp" {
 			output_FORMAT = VAL
 		}
 
