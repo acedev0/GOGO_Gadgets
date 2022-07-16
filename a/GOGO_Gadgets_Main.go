@@ -649,12 +649,19 @@ func SHOW_PRETTY_DATE(input_DATE time.Time, EXTRA_ARGS...string) (string, string
 	cMin := ADD_LEADING_ZERO(mintemp)
 	
 	sectemp := input_DATE.Second()
+	nanotemp := input_DATE.Nanosecond()
 	cSec := ADD_LEADING_ZERO(sectemp)
 
 
 	//4. Thankfully we dont have to worry about this fuckery with the year!
 	cYear := strconv.Itoa(input_DATE.Year())
 	weekd := input_DATE.Weekday().String()
+
+
+
+	//5. Update ZONE info 
+	tmp_zone, tmp_offset := input_DATE.Zone()
+	TMP_ZONE_FULL = " (" + tmp_zone + " " tmp_offset + ")"
 
 	/* 7. Here is the DEFAULT Pretty format that is returned
 
@@ -672,18 +679,15 @@ func SHOW_PRETTY_DATE(input_DATE time.Time, EXTRA_ARGS...string) (string, string
 	//8. SHORT Format is:  Wednesday, 11/20/2001
 	if output_FORMAT == "short" {
 
-		result_TEXT = weekd + ", " + cMon + "/" + cDay + "/" + cYear
+		result_TEXT = weekd + ", " + cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin
 
 	//9. FULL Format: //Wednesday, 11/20/2020 @ 13:56 EST (-5 Hours)
 	} else if output_FORMAT == "full" {
 		
-		result_TEXT = weekd + ", " + cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin
+		result_TEXT = weekd + ", " + cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin + ":" + cSec + " " + TMP_ZONE_FULL
 
-		if SHOW_SECONDS {
-			result_TEXT += ":" + cSec
-		}
-
-		result_TEXT += " " + ZONE_FULL
+	} else if output_FORMAT == "nano" {
+		result_TEXT = weekd + ", " + cMon + "/" + cDay + "/" + cYear + " @ " + cHour + ":" + cMin + ":" + cSec + ":" nanotemp + " " + TMP_ZONE_FULL
 	
 	//10. This is the british/iso format: 2020-09-26
 	} else if output_FORMAT == "british" || output_FORMAT == "iso" {
@@ -693,7 +697,7 @@ func SHOW_PRETTY_DATE(input_DATE time.Time, EXTRA_ARGS...string) (string, string
 	//11. This is JUSTDATE:  09/26/1988
 	} else if output_FORMAT == "justdate" {
 
-		result_TEXT = cMon + "/" + cDay + "/" + cYear
+		result_TEXT = weekd + "_" + cMon + "_" + cDay + "_" + cYear
 	
 	
 	//12. For use as a simple timestamp for a file suffix
@@ -701,11 +705,11 @@ func SHOW_PRETTY_DATE(input_DATE time.Time, EXTRA_ARGS...string) (string, string
 	
 		result_TEXT = weekd + "_" + cMon + "_" + cDay + "_" + cYear + "_" + cHour + "_" + cMin
 	
-	//13. SAME...but just the date
-	} else if output_FORMAT == "datestamp" {
-	
-		result_TEXT = weekd + "_" + cMon + "_" + cDay + "_" + cYear
 
+	} else {
+
+		R.Println(" ERROR in SHOW_PRETTY_DATE: .. invalid output_FORMAT sent!!!")
+		os.Exit(-9)
 	}
 
 	//12. As a bonus, we always return the weekday as a second variable
@@ -850,7 +854,6 @@ func GET_CURRENT_TIME(EXTRA_ARGS ...string) (string, time.Time) {
 
 			case "utc":
 				dateOBJ = dateOBJ.In(UTC_OBJ)
-				C.Println(" SHOWING DATE IN: UTC!!!!!!")
 	
 		} //end of switch
 
