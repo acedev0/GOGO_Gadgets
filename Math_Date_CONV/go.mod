@@ -3,8 +3,8 @@ module github.com/acedev0/GOGO_Gadgets/Math_Date_CONV
 go 1.18
 
 require (
-	github.com/acedev0/GOGO_Gadgets/StringOPS v0.0.0-20220716043146-b98ca2b8b7fa
-	github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220716043146-b98ca2b8b7fa
+	github.com/acedev0/GOGO_Gadgets/StringOPS v0.0.0-20220716202940-74da63fdf165
+	github.com/acedev0/GOGO_Gadgets/a v0.0.0-20220716202940-74da63fdf165
 )
 
 require (
