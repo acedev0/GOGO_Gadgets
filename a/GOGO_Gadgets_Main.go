@@ -1354,6 +1354,142 @@ func PRETTY_STRUCT_json(input interface{}) string {
 
 
 
+/*
+	PERCENTAGE MAGIK
+*/
+/*
+ FIXED GET_PERCENT as of 7/2022
+ SMALLIST number goes first.. then BIGGEST number
+ // specify a 3rd parameter of 2 or 3...to get a percent returned with THAT much precision
+*/
+func GET_PERCENT(ALL_PARAMS ...interface{}) (float64, string) {
+
+	var firstNUM = 0.0
+	var secNUM = 0.0
+
+	var PRECISION = 1		// Default preceission set to return a percent with 1 dec points... specified
+
+	var FORCE_RETURN_POSITIVE = false
+	// Collects the input params specified... supports INT and FLOAT dynamically
+	for n, param := range ALL_PARAMS {
+		// First paramn is always FIRSTNUM
+		if n == 0 {
+
+			if IS_INT(param) { 
+				firstNUM = float64(param.(int)) 
+			} else {
+				firstNUM = param.(float64)
+			}
+			continue
+		}
+		
+		if n == 1 {
+			if IS_INT(param) { 
+				secNUM = float64(param.(int)) 
+			} else {
+				secNUM = param.(float64)
+			}		
+			continue	
+		}
+		
+		// IF a 3 param is specified, this implies the PRECISION of the percentage we return
+		if n == 2 && IS_INT(param) {
+			PRECISION = param.(int)
+		}
+
+		// If a bool is specified, this controls ensuring we return a positive number
+		if IS_BOOL(param) {
+			FORCE_RETURN_POSITIVE = true
+		}
+
+	} //end of for
+
+	// This is same as the TradingView percent function in Terry_CCOMMON_LIB
+	var smallNUM = firstNUM
+	var largeNUM = secNUM
+	
+	
+	// ERROR HANDLING quick returns
+
+	// 
+	if smallNUM == 0.0 || largeNUM == 0.0 {
+		return 0.0, "0.0%"
+	}	
+
+
+	// if numbers are equal
+	if largeNUM == smallNUM {
+		return 100.0, "100.0%"
+	}
+
+	
+	if FORCE_RETURN_POSITIVE {
+		if secNUM > firstNUM {
+			largeNUM = secNUM
+			smallNUM = firstNUM
+		}
+	}
+	// SMALLIST number goes first.. then BIGGEST number
+	calc_VAL := (100.0 * smallNUM) / largeNUM
+
+	percSTRING := strconv.FormatFloat(calc_VAL, 'f', PRECISION, 64)		// Make a string of calc_VAL with specific # of PRECISION dec points
+	percNUM, _ := strconv.ParseFloat(percSTRING, 64) // this NUMERICALLY reformats the percentage to have just the # decimal points that PRECISIONS specifies
+	
+	// make pretty string	
+	percSTRING = percSTRING + "%"
+
+	return percNUM, percSTRING
+
+
+
+}
+
+/*
+	This takes in a number (float) and shows it as pretty PERCENT string
+	// Specify another INT to define PRECISION
+*/
+func SHOW_PRETTY_PERCENT(ALL_PARAMS ...interface{}) string {
+
+	var inputNUM = 0.0
+	var PRECISION = 1
+
+	for n, param := range ALL_PARAMS {
+		// First paramn is always FIRSTNUM
+		if n == 0 {
+
+			if IS_INT(param) { 
+				inputNUM = float64(param.(int)) 
+
+			} else {
+				inputNUM = param.(float64)
+			}
+			continue
+		}
+		
+		if n == 1 {
+			if IS_INT(param) { 
+				PRECISION = param.(int)
+			}		
+		}
+	} //end of for	
+
+	percSTRING := strconv.FormatFloat(inputNUM, 'f', PRECISION, 64)		// Make a string of num with specific # of PRECISION dec points
+	percSTRING = percSTRING + "%"
+
+	return percSTRING
+}
+
+
+
+// Alias for Get_PERCENT
+func GET_PERCENTAGE(ALL_PARAMS ...interface{}) (float64, string) {
+	return GET_PERCENT(ALL_PARAMS...)
+}
+/*
+	END OF PERCENTAGE MAGIK
+*/
+
+
 // These are the characters used to generate the serial
 //var sessTEMPLATE = []rune("GRZBJHUFLEKVXMNTQPSOADWYC527183469")
 
