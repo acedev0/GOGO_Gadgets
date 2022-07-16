@@ -319,12 +319,36 @@ func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 
 /*
 	This takes in a number (float) and shows it as pretty PERCENT string
+	// Specify another INT to define PRECISION
 */
-func SHOW_PRETTY_PERCENT(num float64, PRECISION int) string {
+func SHOW_PRETTY_PERCENT(ALL_PARAMS ...interface{}) string {
 
-	percSTRING := strconv.FormatFloat(num, 'f', PRECISION, 64)		// Make a string of num with specific # of PRECISION dec points
+	var inputNUM = 0.0
+	var PRECISION = 1
+
+	for n, param := range ALL_PARAMS {
+		// First paramn is always FIRSTNUM
+		if n == 0 {
+
+			if IS_INT(param) { 
+				inputNUM = float64(param.(int)) 
+
+			} else {
+				inputNUM = param.(float64)
+			}
+			continue
+		}
+		
+		if n == 1 {
+			if IS_INT(param) { 
+				PRECISION = param.(int)
+			}		
+		}
+	} //end of for	
+
+	percSTRING := strconv.FormatFloat(inputNUM, 'f', PRECISION, 64)		// Make a string of num with specific # of PRECISION dec points
 	percSTRING = percSTRING + "%"
-	
+
 	return percSTRING
 }
 
