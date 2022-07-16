@@ -233,13 +233,14 @@ func IS_ODD(input_NUM int) bool {
 /*
  FIXED GET_PERCENT as of 7/2022
  SMALLIST number goes first.. then BIGGEST number
+ // specify a 3rd parameter of 2 or 3...to get a percent returned with THAT much precision
 */
 func GET_PERCENT(ALL_PARAMS ...interface{}) (string, float64) {
 
 	var firstNUM = 0.0
 	var secNUM = 0.0
 
-	var PRECISION = 2		// Default preceission si to return a percent with 2 dec points
+	var PRECISION = 1		// Default preceission set to return a percent with 1 dec points... specified
 
 	var FORCE_RETURN_POSITIVE = false
 	// Collects the input params specified... supports INT and FLOAT dynamically
